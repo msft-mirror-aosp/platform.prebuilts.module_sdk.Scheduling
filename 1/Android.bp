@@ -13,6 +13,13 @@ prebuilt_bootclasspath_fragment {
     apex_available: ["com.android.scheduling"],
     licenses: ["scheduling-sdk_Android-Apache-2.0@1"],
     contents: ["scheduling-sdk_framework-scheduling@1"],
+    hidden_api: {
+        stub_flags: "hiddenapi/stub-flags.csv",
+        annotation_flags: "hiddenapi/annotation-flags.csv",
+        metadata: "hiddenapi/metadata.csv",
+        index: "hiddenapi/index.csv",
+        all_flags: "hiddenapi/all-flags.csv",
+    },
 }
 
 java_sdk_library_import {
