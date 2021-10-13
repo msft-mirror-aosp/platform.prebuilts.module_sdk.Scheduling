@@ -51,6 +51,7 @@ java_sdk_library_import {
         stub_srcs: ["sdk_library/public/framework-scheduling.srcjar"],
         current_api: "sdk_library/public/framework-scheduling.txt",
         removed_api: "sdk_library/public/framework-scheduling-removed.txt",
+        annotations: "sdk_library/public/framework-scheduling_annotations.zip",
         sdk_version: "module_current",
     },
     system: {
@@ -58,6 +59,7 @@ java_sdk_library_import {
         stub_srcs: ["sdk_library/system/framework-scheduling.srcjar"],
         current_api: "sdk_library/system/framework-scheduling.txt",
         removed_api: "sdk_library/system/framework-scheduling-removed.txt",
+        annotations: "sdk_library/system/framework-scheduling_annotations.zip",
         sdk_version: "module_current",
     },
     module_lib: {
@@ -65,6 +67,7 @@ java_sdk_library_import {
         stub_srcs: ["sdk_library/module-lib/framework-scheduling.srcjar"],
         current_api: "sdk_library/module-lib/framework-scheduling.txt",
         removed_api: "sdk_library/module-lib/framework-scheduling-removed.txt",
+        annotations: "sdk_library/module-lib/framework-scheduling_annotations.zip",
         sdk_version: "module_current",
     },
 }
@@ -82,6 +85,7 @@ java_sdk_library_import {
         stub_srcs: ["sdk_library/public/framework-scheduling.srcjar"],
         current_api: "sdk_library/public/framework-scheduling.txt",
         removed_api: "sdk_library/public/framework-scheduling-removed.txt",
+        annotations: "sdk_library/public/framework-scheduling_annotations.zip",
         sdk_version: "module_current",
     },
     system: {
@@ -89,6 +93,7 @@ java_sdk_library_import {
         stub_srcs: ["sdk_library/system/framework-scheduling.srcjar"],
         current_api: "sdk_library/system/framework-scheduling.txt",
         removed_api: "sdk_library/system/framework-scheduling-removed.txt",
+        annotations: "sdk_library/system/framework-scheduling_annotations.zip",
         sdk_version: "module_current",
     },
     module_lib: {
@@ -96,6 +101,7 @@ java_sdk_library_import {
         stub_srcs: ["sdk_library/module-lib/framework-scheduling.srcjar"],
         current_api: "sdk_library/module-lib/framework-scheduling.txt",
         removed_api: "sdk_library/module-lib/framework-scheduling-removed.txt",
+        annotations: "sdk_library/module-lib/framework-scheduling_annotations.zip",
         sdk_version: "module_current",
     },
 }
