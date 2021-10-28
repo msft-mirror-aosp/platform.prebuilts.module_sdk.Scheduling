@@ -45,6 +45,7 @@ java_sdk_library_import {
     apex_available: ["com.android.scheduling"],
     licenses: ["scheduling-sdk_Android-Apache-2.0@current"],
     shared_library: false,
+    permitted_packages: ["android.scheduling"],
     public: {
         jars: ["sdk_library/public/framework-scheduling-stubs.jar"],
         stub_srcs: ["sdk_library/public/framework-scheduling.srcjar"],
@@ -78,6 +79,7 @@ java_sdk_library_import {
     apex_available: ["com.android.scheduling"],
     licenses: ["scheduling-sdk_Android-Apache-2.0"],
     shared_library: false,
+    permitted_packages: ["android.scheduling"],
     public: {
         jars: ["sdk_library/public/framework-scheduling-stubs.jar"],
         stub_srcs: ["sdk_library/public/framework-scheduling.srcjar"],
