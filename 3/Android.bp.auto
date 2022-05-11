@@ -1,5 +1,16 @@
 // This is auto-generated. DO NOT EDIT.
 
+// Soong config variable stanza added by vendor/google/build/mainline_modules_sdks.py.
+soong_config_module_type_import {
+    from: "packages/modules/common/Android.bp",
+    module_types: [
+        "module_java_import",
+        "module_java_sdk_library_import",
+        "module_prebuilt_bootclasspath_fragment",
+        "module_prebuilt_systemserverclasspath_fragment",
+    ],
+}
+
 package {
     // A default list here prevents the license LSC from adding its own list which would
     // be unnecessary as every module in the sdk already has its own licenses property.
@@ -13,28 +24,48 @@ prebuilt_bootclasspath_fragment {
     apex_available: ["com.android.scheduling"],
     licenses: ["scheduling-sdk_Android-Apache-2.0@current"],
     contents: ["scheduling-sdk_framework-scheduling@current"],
+    fragments: [
+        {
+            apex: "com.android.art",
+            module: "art-bootclasspath-fragment",
+        },
+    ],
     hidden_api: {
-        stub_flags: "hiddenapi/stub-flags.csv",
         annotation_flags: "hiddenapi/annotation-flags.csv",
         metadata: "hiddenapi/metadata.csv",
         index: "hiddenapi/index.csv",
-        all_flags: "hiddenapi/all-flags.csv",
+        signature_patterns: "hiddenapi/signature-patterns.csv",
+        filtered_stub_flags: "hiddenapi/filtered-stub-flags.csv",
+        filtered_flags: "hiddenapi/filtered-flags.csv",
     },
 }
 
-prebuilt_bootclasspath_fragment {
+module_prebuilt_bootclasspath_fragment {
     name: "com.android.scheduling-bootclasspath-fragment",
-    prefer: false,
+    // Do not prefer prebuilt if the Soong config variable "module_build_from_source" in namespace "ANDROID" is true.
+    prefer: true,
+    soong_config_variables: {
+        module_build_from_source: {
+            prefer: false,
+        },
+    },
     visibility: ["//visibility:public"],
     apex_available: ["com.android.scheduling"],
     licenses: ["scheduling-sdk_Android-Apache-2.0"],
     contents: ["framework-scheduling"],
+    fragments: [
+        {
+            apex: "com.android.art",
+            module: "art-bootclasspath-fragment",
+        },
+    ],
     hidden_api: {
-        stub_flags: "hiddenapi/stub-flags.csv",
         annotation_flags: "hiddenapi/annotation-flags.csv",
         metadata: "hiddenapi/metadata.csv",
         index: "hiddenapi/index.csv",
-        all_flags: "hiddenapi/all-flags.csv",
+        signature_patterns: "hiddenapi/signature-patterns.csv",
+        filtered_stub_flags: "hiddenapi/filtered-stub-flags.csv",
+        filtered_flags: "hiddenapi/filtered-flags.csv",
     },
 }
 
@@ -51,6 +82,7 @@ java_sdk_library_import {
         stub_srcs: ["sdk_library/public/framework-scheduling.srcjar"],
         current_api: "sdk_library/public/framework-scheduling.txt",
         removed_api: "sdk_library/public/framework-scheduling-removed.txt",
+        annotations: "sdk_library/public/framework-scheduling_annotations.zip",
         sdk_version: "module_current",
     },
     system: {
@@ -58,6 +90,7 @@ java_sdk_library_import {
         stub_srcs: ["sdk_library/system/framework-scheduling.srcjar"],
         current_api: "sdk_library/system/framework-scheduling.txt",
         removed_api: "sdk_library/system/framework-scheduling-removed.txt",
+        annotations: "sdk_library/system/framework-scheduling_annotations.zip",
         sdk_version: "module_current",
     },
     module_lib: {
@@ -65,13 +98,20 @@ java_sdk_library_import {
         stub_srcs: ["sdk_library/module-lib/framework-scheduling.srcjar"],
         current_api: "sdk_library/module-lib/framework-scheduling.txt",
         removed_api: "sdk_library/module-lib/framework-scheduling-removed.txt",
+        annotations: "sdk_library/module-lib/framework-scheduling_annotations.zip",
         sdk_version: "module_current",
     },
 }
 
-java_sdk_library_import {
+module_java_sdk_library_import {
     name: "framework-scheduling",
-    prefer: false,
+    // Do not prefer prebuilt if the Soong config variable "module_build_from_source" in namespace "ANDROID" is true.
+    prefer: true,
+    soong_config_variables: {
+        module_build_from_source: {
+            prefer: false,
+        },
+    },
     visibility: ["//visibility:public"],
     apex_available: ["com.android.scheduling"],
     licenses: ["scheduling-sdk_Android-Apache-2.0"],
@@ -82,6 +122,7 @@ java_sdk_library_import {
         stub_srcs: ["sdk_library/public/framework-scheduling.srcjar"],
         current_api: "sdk_library/public/framework-scheduling.txt",
         removed_api: "sdk_library/public/framework-scheduling-removed.txt",
+        annotations: "sdk_library/public/framework-scheduling_annotations.zip",
         sdk_version: "module_current",
     },
     system: {
@@ -89,6 +130,7 @@ java_sdk_library_import {
         stub_srcs: ["sdk_library/system/framework-scheduling.srcjar"],
         current_api: "sdk_library/system/framework-scheduling.txt",
         removed_api: "sdk_library/system/framework-scheduling-removed.txt",
+        annotations: "sdk_library/system/framework-scheduling_annotations.zip",
         sdk_version: "module_current",
     },
     module_lib: {
@@ -96,8 +138,33 @@ java_sdk_library_import {
         stub_srcs: ["sdk_library/module-lib/framework-scheduling.srcjar"],
         current_api: "sdk_library/module-lib/framework-scheduling.txt",
         removed_api: "sdk_library/module-lib/framework-scheduling-removed.txt",
+        annotations: "sdk_library/module-lib/framework-scheduling_annotations.zip",
         sdk_version: "module_current",
     },
+}
+
+java_import {
+    name: "scheduling-sdk_service-scheduling@current",
+    sdk_member_name: "service-scheduling",
+    visibility: ["//visibility:public"],
+    apex_available: ["com.android.scheduling"],
+    licenses: ["scheduling-sdk_Android-Apache-2.0@current"],
+    jars: ["java_systemserver_libs/snapshot/jars/are/invalid/service-scheduling.jar"],
+}
+
+module_java_import {
+    name: "service-scheduling",
+    // Do not prefer prebuilt if the Soong config variable "module_build_from_source" in namespace "ANDROID" is true.
+    prefer: true,
+    soong_config_variables: {
+        module_build_from_source: {
+            prefer: false,
+        },
+    },
+    visibility: ["//visibility:public"],
+    apex_available: ["com.android.scheduling"],
+    licenses: ["scheduling-sdk_Android-Apache-2.0"],
+    jars: ["java_systemserver_libs/snapshot/jars/are/invalid/service-scheduling.jar"],
 }
 
 license {
@@ -115,9 +182,35 @@ license {
     license_text: ["licenses/build/soong/licenses/LICENSE"],
 }
 
+prebuilt_systemserverclasspath_fragment {
+    name: "scheduling-sdk_com.android.scheduling-systemserverclasspath-fragment@current",
+    sdk_member_name: "com.android.scheduling-systemserverclasspath-fragment",
+    visibility: ["//visibility:public"],
+    apex_available: ["com.android.scheduling"],
+    licenses: ["scheduling-sdk_Android-Apache-2.0@current"],
+    standalone_contents: ["scheduling-sdk_service-scheduling@current"],
+}
+
+module_prebuilt_systemserverclasspath_fragment {
+    name: "com.android.scheduling-systemserverclasspath-fragment",
+    // Do not prefer prebuilt if the Soong config variable "module_build_from_source" in namespace "ANDROID" is true.
+    prefer: true,
+    soong_config_variables: {
+        module_build_from_source: {
+            prefer: false,
+        },
+    },
+    visibility: ["//visibility:public"],
+    apex_available: ["com.android.scheduling"],
+    licenses: ["scheduling-sdk_Android-Apache-2.0"],
+    standalone_contents: ["service-scheduling"],
+}
+
 sdk_snapshot {
     name: "scheduling-sdk@current",
     visibility: ["//visibility:public"],
     bootclasspath_fragments: ["scheduling-sdk_com.android.scheduling-bootclasspath-fragment@current"],
     java_sdk_libs: ["scheduling-sdk_framework-scheduling@current"],
+    java_systemserver_libs: ["scheduling-sdk_service-scheduling@current"],
+    systemserverclasspath_fragments: ["scheduling-sdk_com.android.scheduling-systemserverclasspath-fragment@current"],
 }
