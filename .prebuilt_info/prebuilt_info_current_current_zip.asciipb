@@ -1,6 +1,10 @@
 drops {
   android_build_drop {
+<<<<<<< HEAD   (51b51c [automerger skipped] DO NOT MERGE - Merge TP1A.220624.013 am)
     build_id: "T1004067"
+=======
+    build_id: "T1004275"
+>>>>>>> CHANGE (83e6c2 DO NOT MERGE Drop prebuilt files to android source tree.)
     target: "train_build"
     source_file: "mainline-sdks/for-Tiramisu-build/current/com.google.android.scheduling/sdk/scheduling-sdk-current.zip"
   }
